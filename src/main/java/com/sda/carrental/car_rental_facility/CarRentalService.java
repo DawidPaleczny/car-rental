@@ -18,16 +18,7 @@ public class CarRentalService {
     }
 
     CarRentalModel getById(Long id)  {
-        //please do not do this :)
-//        Optional<CarRentalModel> optionalOfCarRental = repository.findById(id);
-//        if (optionalOfCarRental.isPresent()) {
-//            return optionalOfCarRental.get();
-//        } else {
-//            throw new ObjectNotFoundInRepositoryException("Car Rental not found");
-//        }
-
         return repository.findById(id)
                 .orElseThrow(() -> new ObjectNotFoundInRepositoryException("Car Rental not found"));
-
     }
 }
