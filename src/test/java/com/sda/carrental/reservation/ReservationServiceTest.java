@@ -46,13 +46,13 @@ class ReservationServiceTest {
         CompanyBranchModel startBranch = new CompanyBranchModel(1L, "Warszawa");
         Mockito.when(branchesRepositoryMock.findById(1L)).thenReturn(Optional.of(startBranch));
 
-        CompanyBranchModel endBranch = new CompanyBranchModel(2L, "Gdynia");
+        CompanyBranchModel endBranch = new CompanyBranchModel(2L, "Kraków");
         Mockito.when(branchesRepositoryMock.findById(2L)).thenReturn(Optional.of(endBranch));
 
         CarModel car = new CarModel(
                 1L,
-                "KIA",
-                "Ceed",
+                "Toyota",
+                "Corolla",
                 "Sedan",
                 CarStatus.AVAILABLE,
                 BigDecimal.valueOf(100)
