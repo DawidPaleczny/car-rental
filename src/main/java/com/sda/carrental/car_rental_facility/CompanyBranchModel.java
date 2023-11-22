@@ -1,18 +1,26 @@
 package com.sda.carrental.car_rental_facility;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 import java.io.Serializable;
 
 @Entity
 @Table(name = "company_branch")
-public class CompanyBranchModel implements Serializable {
+public class CompanyBranchModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull(message = "field can't be null")
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "car_rental_id", nullable = false)
+    @JsonBackReference
+    private CarRentalModel carRental;
 
     public CompanyBranchModel(Long id, String name) {
         this.id = id;
@@ -35,6 +43,14 @@ public class CompanyBranchModel implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public CarRentalModel getCarRental() {
+        return carRental;
+    }
+
+    public void setCarRental(CarRentalModel carRental) {
+        this.carRental = carRental;
     }
 
     @Override
