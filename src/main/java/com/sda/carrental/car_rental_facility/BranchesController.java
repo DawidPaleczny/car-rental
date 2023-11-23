@@ -27,11 +27,11 @@ public class BranchesController {
 
     @GetMapping("/{id}")
     public CompanyBranchDTO findById(@PathVariable Long id) {
-        CompanyBranchModel companyBranch = service.findById(id);
+        BranchesModel companyBranch = service.findById(id);
         return mapToCompanyBranchDTO(companyBranch);
     }
 
-    private CompanyBranchDTO mapToCompanyBranchDTO(CompanyBranchModel companyBranch) {
+    private CompanyBranchDTO mapToCompanyBranchDTO(BranchesModel companyBranch) {
         CarRentalModel carRental = companyBranch.getCarRental();
         return new CompanyBranchDTO(
                 companyBranch.getId(),

@@ -1,7 +1,7 @@
 package com.sda.carrental.reservation;
 
 import com.sda.carrental.car_rental_facility.BranchesRepository;
-import com.sda.carrental.car_rental_facility.CompanyBranchModel;
+import com.sda.carrental.car_rental_facility.BranchesModel;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
@@ -43,10 +43,10 @@ class ReservationServiceTest {
                 2L
         );
 
-        CompanyBranchModel startBranch = new CompanyBranchModel(1L, "Warszawa");
+        BranchesModel startBranch = new BranchesModel(1L, "Warszawa");
         Mockito.when(branchesRepositoryMock.findById(1L)).thenReturn(Optional.of(startBranch));
 
-        CompanyBranchModel endBranch = new CompanyBranchModel(2L, "Kraków");
+        BranchesModel endBranch = new BranchesModel(2L, "Kraków");
         Mockito.when(branchesRepositoryMock.findById(2L)).thenReturn(Optional.of(endBranch));
 
         CarModel car = new CarModel(

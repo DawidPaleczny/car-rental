@@ -3,7 +3,6 @@ package com.sda.carrental.car_rental_facility;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
@@ -18,8 +17,8 @@ class CarRentalControllerTest {
 
     @Test
     void shouldSaveCarRental() {
-        List<CompanyBranchModel> branches = List.of(
-            new CompanyBranchModel(null, "Radom")
+        List<BranchesModel> branches = List.of(
+            new BranchesModel(null, "Radom")
         );
         CarRentalModel carRental = new CarRentalModel(
                 null,
